@@ -46,40 +46,6 @@ namespace WinFormsApp
             this.Close(); // Close the current signup form
         }
 
-        private void btnSignup_Click(object sender, EventArgs e)
-        {
-            // Check if the passwords match
-            if (txtNewPasswords.Text != txtConfirmPasswords.Text)
-            {
-                MessageBox.Show("Passwords do not match.");
-                return; // Exit the function if passwords don't match
-            }
-
-            // Insert new user into the database
-            try
-            {
-                var username = txtNewUsername.Text;
-                var password = txtNewPasswords.Text;
-
-                // Build a SQL command to insert data into the Users table
-                string query = $"INSERT INTO Users (Username, Password) VALUES ('{username}', '{password}')";
-
-                // Run the query using the Access Application
-                acApp.DoCmd.RunSQL(query);
-
-                // Inform the user of a successful registration
-                MessageBox.Show("User Registered Successfully! Please go back and log in.");
-
-                new Login().Show(); // Show the login form after successful registration
-                this.Close(); // Close the signup form
-            }
-            catch (Exception ex)
-            {
-                // Show an error message if registration fails
-                MessageBox.Show("Failed to register: " + ex.Message);
-            }
-        }
-
         private void FormClosed(object sender, FormClosedEventArgs e)
         {
             // Close Access Application on form close

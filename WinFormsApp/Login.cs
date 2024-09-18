@@ -33,26 +33,6 @@ namespace WinFormsApp
             return userCount > 0;
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Username and password 
-
-            if (ValidateUser(txtUsername.Text, txtPasswords.Text))
-            {
-                new VendorInfo().Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect Username or Password");
-                txtPasswords.Clear();
-                txtUsername.Clear();
-                txtUsername.Focus();
-            }
-        }
-
         private void label4_Click(object sender, EventArgs e)
         {
             txtUsername.Clear();
@@ -69,24 +49,6 @@ namespace WinFormsApp
         {
             new SignUp().Show();
             this.Hide();
-        }
-
-        private void btnShow_Click(object sender, EventArgs e)
-        {
-            if (txtPasswords.PasswordChar == '*')
-            {
-                btnHide.BringToFront();
-                txtPasswords.PasswordChar = '\0';
-            }
-        }
-
-        private void btnHide_Click(object sender, EventArgs e)
-        {
-            if (txtUsername.PasswordChar == '\0')
-            {
-                btnShow.BringToFront();
-                txtUsername.PasswordChar = '*';
-            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
