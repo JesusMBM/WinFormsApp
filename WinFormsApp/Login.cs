@@ -11,7 +11,7 @@ namespace WinFormsApp
         public Login()
         {
             InitializeComponent();
-
+            //
             // Initialize the SqlConnection here
             sqlConnection = new SqlConnection(connectionstring);
         }
