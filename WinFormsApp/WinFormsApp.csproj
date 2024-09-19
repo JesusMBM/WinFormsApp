@@ -63,6 +63,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="VendorInfoData.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VendorInfoData.xsd</DependentUpon>
+    </Compile>
     <Compile Update="VendorLoginDataSet.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -81,6 +86,10 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="VendorInfoData.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VendorInfoData.Designer.cs</LastGenOutput>
     </None>
     <None Update="VendorLoginDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>

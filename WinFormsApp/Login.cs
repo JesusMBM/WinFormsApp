@@ -34,21 +34,62 @@ namespace WinFormsApp
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            // Username and password 
-
+            // Check if the username and password are valid
             if (ValidateUser(txtUsername.Text, txtPasswords.Text))
             {
-                new NewVendorInfo().Show();
-                this.Hide();
+                // Ensure the user has selected a user type from the ComboBox
+                if (comboBoxType.SelectedItem == null) // Fixed comparison for null selection
+                {
+                    MessageBox.Show("Please select a valid user type.");
+                    comboBoxType.Focus();
+                    return;
+                }
+
+                // Get the selected user type from the ComboBox
+                string userSelectedType = comboBoxType.Text;
+
+                // Fetch user type from the database for the given username
+                string userTypeQuery = "SELECT Type FROM VendorCredentials WHERE Username = @Username";
+
+                using (SqlCommand command = new SqlCommand(userTypeQuery, sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@Username", txtUsername.Text);
+
+                    // Execute the query to get the user type
+                    string sqlType = (string)command.ExecuteScalar();
+
+                    sqlConnection.Close();
+
+                    // Check if the selected user type matches the database value
+                    if (userSelectedType == sqlType)
+                    {
+                        // Correct user type, proceed based on user role
+                        if (userSelectedType == "Admin")
+                        {
+                            new Admin().Show();
+                            this.Hide();
+                        }
+                        else if (userSelectedType == "Vendor")
+                        {
+                            new VendorInfo().Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("User Type is incorrect! Please select the correct user type.");
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Incorrect Username or Password");
+                MessageBox.Show("Incorrect username or password!");
                 txtPasswords.Clear();
                 txtUsername.Clear();
                 txtUsername.Focus();
             }
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -94,6 +135,11 @@ namespace WinFormsApp
             txtUsername.Clear();
             txtPasswords.Clear();
             txtUsername.Focus();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
