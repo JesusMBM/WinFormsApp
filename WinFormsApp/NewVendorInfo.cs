@@ -49,6 +49,26 @@ namespace WinFormsApp
                 xlWorkSheet.Cells[iRow, 6].Value = txtComapanyAddress.Text;
                 xlWorkSheet.Cells[iRow, 7].Value = listBox2.GetItemText(listBox2.SelectedItem);
 
+                if (picVendorPhoto.Image != null)  // Check if the PictureBox has an image
+                {
+                    var ms = new MemoryStream();
+                    picVendorPhoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    ms.Position = 0;
+
+                    string tempImagePath = Path.GetTempFileName() + ".png";
+                    File.WriteAllBytes(tempImagePath, ms.ToArray());
+
+                    float left = Convert.ToSingle(xlWorkSheet.Cells[iRow, 8].Left);
+                    float top = Convert.ToSingle(xlWorkSheet.Cells[iRow, 8].Top);
+
+                    xlWorkSheet.Shapes.AddPicture(tempImagePath,
+                                                   Microsoft.Office.Core.MsoTriState.msoFalse,
+                                                   Microsoft.Office.Core.MsoTriState.msoCTrue,
+                                                   left, top, 15, 15);
+                    ms.Close();
+
+                }
+
                 MessageBox.Show("Vendor Information saved successfully!");
 
                 // Save and close the workbook
@@ -85,53 +105,21 @@ namespace WinFormsApp
         private void button3_Click(object sender, EventArgs e)
         {
             new NewVendorInfo().Show();
+            this.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            // Open the Excel workbook and worksheet
-            var xlWorkBook = xlApp.Workbooks.Open(dbpath);
-            var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets["Sheet1"];
-
-            int iRow = 2;
-
-            if (picVendorPhoto.Image != null)
-            {
-                
-                var ms = new MemoryStream();
-                picVendorPhoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png); 
-                ms.Position = 0; 
-
-                string tempImagePath = Path.GetTempFileName() + ".png"; 
-                File.WriteAllBytes(tempImagePath, ms.ToArray()); 
-
-                float left = Convert.ToSingle(xlWorkSheet.Cells[iRow, 8].Left);  
-                float top = Convert.ToSingle(xlWorkSheet.Cells[iRow, 8].Top);
-
-                dynamic shapes = xlWorkSheet.Shapes;
-
-                shapes.AddPicture(tempImagePath,
-                                  Microsoft.Office.Core.MsoTriState.msoFalse,
-                                  Microsoft.Office.Core.MsoTriState.msoCTrue,
-                                  left, top, 50, 50);
-
-                ms.Close();
-
-                MessageBox.Show("Vendor photo saved successfully!");
-
-                xlWorkBook.Save();
-                xlWorkBook.Close(true);
-                xlApp.Quit();
-
-                MessageBox.Show("Vendor photo saved successfully!");
-            }
-           
+            
         }
+
+
 
         private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            {
+                Application.Exit();
+            }
         }
     }
-}
+
 

@@ -7,29 +7,46 @@ namespace WinFormsApp
     {
         // Create Access Application
         private SqlConnection sqlConnection;
-        private string connectionstring = @"Data Source=DESKTOP-3RCAUPI\SQLEXPRESS02;Initial Catalog=VendorLogin;Integrated Security=True;TrustServerCertificate=True"; // Access File Path
+        private string connectionString = @"Data Source=DESKTOP-3RCAUPI\SQLEXPRESS02;Initial Catalog=VendorLogin;Integrated Security=True;TrustServerCertificate=True"; // Access File Path
+
         public Login()
         {
             InitializeComponent();
             // Initialize the SqlConnection here
-            sqlConnection = new SqlConnection(connectionstring);
+            sqlConnection = new SqlConnection(connectionString);
         }
 
         private bool ValidateUser(string username, string passwords)
         {
-           // Open the Connection
-           sqlConnection.Open();
+            try
+            {
+                // Open the Connection
+                sqlConnection.Open();
 
-            string query = @"SELECT COUNT (*) AS UserCount FROM VendorCredentials WHERE Username = @username AND Password = @password";
-            SqlCommand command = new SqlCommand(query, sqlConnection);
-            command.Parameters.AddWithValue("username", username);
-            command.Parameters.AddWithValue("password", passwords);
+                string query = @"SELECT COUNT (*) AS UserCount FROM VendorCredentials WHERE Username = @username AND Password = @password";
+                using (SqlCommand command = new SqlCommand(query, sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", passwords);
 
-            int userCount = (int)command.ExecuteScalar();
+                    int userCount = (int)command.ExecuteScalar();
 
-            sqlConnection.Close();
-
-            return userCount > 0;
+                    return userCount > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                // Ensure the connection is closed after the query
+                if (sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    sqlConnection.Close();
+                }
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -38,7 +55,7 @@ namespace WinFormsApp
             if (ValidateUser(txtUsername.Text, txtPasswords.Text))
             {
                 // Ensure the user has selected a user type from the ComboBox
-                if (comboBoxType.SelectedItem == null) // Fixed comparison for null selection
+                if (comboBoxType.SelectedItem == null)
                 {
                     MessageBox.Show("Please select a valid user type.");
                     comboBoxType.Focus();
@@ -48,36 +65,47 @@ namespace WinFormsApp
                 // Get the selected user type from the ComboBox
                 string userSelectedType = comboBoxType.Text;
 
-                // Fetch user type from the database for the given username
                 string userTypeQuery = "SELECT Type FROM VendorCredentials WHERE Username = @Username";
 
-                using (SqlCommand command = new SqlCommand(userTypeQuery, sqlConnection))
+                try
                 {
-                    command.Parameters.AddWithValue("@Username", txtUsername.Text);
+                    sqlConnection.Open();
 
-                    // Execute the query to get the user type
-                    string sqlType = (string)command.ExecuteScalar();
-
-                    sqlConnection.Close();
-
-                    // Check if the selected user type matches the database value
-                    if (userSelectedType == sqlType)
+                    using (SqlCommand command = new SqlCommand(userTypeQuery, sqlConnection))
                     {
-                        // Correct user type, proceed based on user role
-                        if (userSelectedType == "Admin")
+                        command.Parameters.AddWithValue("@Username", txtUsername.Text);
+
+                        string sqlType = (string)command.ExecuteScalar();
+
+                        // Check if the selected user type matches the database value
+                        if (userSelectedType == sqlType)
                         {
-                            new Admin().Show();
-                            this.Hide();
+                            if (userSelectedType == "Admin")
+                            {
+                                new Admin().Show();
+                                this.Hide();
+                            }
+                            else if (userSelectedType == "Vendor")
+                            {
+                                new VendorInfo().Show();
+                                this.Hide();
+                            }
                         }
-                        else if (userSelectedType == "Vendor")
+                        else
                         {
-                            new VendorInfo().Show();
-                            this.Hide();
+                            MessageBox.Show("User Type is incorrect! Please select the correct user type.");
                         }
                     }
-                    else
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
+                finally
+                {
+                    if (sqlConnection.State == System.Data.ConnectionState.Open)
                     {
-                        MessageBox.Show("User Type is incorrect! Please select the correct user type.");
+                        sqlConnection.Close();
                     }
                 }
             }
@@ -90,11 +118,8 @@ namespace WinFormsApp
             }
         }
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+        // Other button click and form load methods remain unchanged
+        private void pictureBox1_Click(object sender, EventArgs e) { }
 
         private void btnShow_Click_1(object sender, EventArgs e)
         {
@@ -107,17 +132,14 @@ namespace WinFormsApp
 
         private void btnHide_Click_1(object sender, EventArgs e)
         {
-            if (txtUsername.PasswordChar == '\0')
+            if (txtPasswords.PasswordChar == '\0')
             {
                 btnShow.BringToFront();
-                txtUsername.PasswordChar = '*';
+                txtPasswords.PasswordChar = '*';
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Login_Load(object sender, EventArgs e) { }
 
         private void label2_Click_1(object sender, EventArgs e)
         {
@@ -137,9 +159,6 @@ namespace WinFormsApp
             txtUsername.Focus();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label6_Click(object sender, EventArgs e) { }
     }
 }
