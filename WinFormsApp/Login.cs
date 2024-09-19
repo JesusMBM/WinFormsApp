@@ -11,7 +11,6 @@ namespace WinFormsApp
         public Login()
         {
             InitializeComponent();
-            //
             // Initialize the SqlConnection here
             sqlConnection = new SqlConnection(connectionstring);
         }
@@ -33,31 +32,13 @@ namespace WinFormsApp
             return userCount > 0;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-            txtUsername.Clear();
-            txtPasswords.Clear();
-            txtUsername.Focus();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            new SignUp().Show();
-            this.Hide();
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             // Username and password 
 
             if (ValidateUser(txtUsername.Text, txtPasswords.Text))
             {
-                new VendorInfo().Show();
+                new NewVendorInfo().Show();
                 this.Hide();
             }
             else
@@ -90,6 +71,29 @@ namespace WinFormsApp
                 btnShow.BringToFront();
                 txtUsername.PasswordChar = '*';
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+            new SignUp().Show();
+            this.Hide();
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+            txtUsername.Clear();
+            txtPasswords.Clear();
+            txtUsername.Focus();
         }
     }
 }

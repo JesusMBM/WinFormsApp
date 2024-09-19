@@ -131,6 +131,7 @@
             this.label4.Size = new System.Drawing.Size(186, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Already has an Account?";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // lbLogin
             // 
@@ -143,6 +144,7 @@
             this.lbLogin.Size = new System.Drawing.Size(124, 17);
             this.lbLogin.TabIndex = 8;
             this.lbLogin.Text = "Click here to log in";
+            this.lbLogin.Click += new System.EventHandler(this.lbLogin_Click_1);
             // 
             // SignUp
             // 

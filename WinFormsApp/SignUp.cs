@@ -40,12 +40,6 @@ namespace WinFormsApp
 
         }
 
-        private void lbLogin_Click(object sender, EventArgs e)
-        {
-            new Login().Show(); // Show the login form
-            this.Close(); // Close the current signup form
-        }
-
         private void FormClosed(object sender, FormClosedEventArgs e)
         {
             // Close Access Application on form close
@@ -92,6 +86,17 @@ namespace WinFormsApp
         }
 
         private void txtNewUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbLogin_Click_1(object sender, EventArgs e)
+        {
+            new Login().Show(); // Show the login form
+            this.Close(); // Close the current signup form
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
