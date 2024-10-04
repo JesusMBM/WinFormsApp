@@ -8,31 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Access = Microsoft.Office.Interop.Access;
+using System.Data.SqlClient;
 
 namespace WinFormsApp
 {
     public partial class SignUp : Form
     {
         // Create Access Application
-        private Access.Application acApp;
-        private string dbpath = @"C:\Users\VMware\Desktop\MIS 555\SignUpWinForm1.accdb"; // Access File Path
+        private SqlConnection sqlConnection;
+        private string connectionString = @"Data Source=DESKTOP-3RCAUPI\SQLEXPRESS02;Initial Catalog=VendorLogin;Integrated Security=True;TrustServerCertificate=True"; // Access File Path
 
         public SignUp()
         {
             InitializeComponent();
 
-            try
-            {
-                // Initialize Access Application
-                acApp = new Access.Application();
-                acApp.OpenCurrentDatabase(dbpath, false); // Open the database
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error opening database: {ex.Message}");
-                Application.Exit(); // Exit the app if the database can't be opened
-            }
+            sqlConnection = new SqlConnection(connectionString);
         }
 
         private void SignUp_Load(object sender, EventArgs e)
@@ -40,15 +30,6 @@ namespace WinFormsApp
 
         }
 
-        private void FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // Close Access Application on form close
-            if (acApp != null)
-            {
-                acApp.Quit();
-                acApp = null;
-            }
-        }
 
         private void btnSignup_Click_1(object sender, EventArgs e)
         {
@@ -62,14 +43,23 @@ namespace WinFormsApp
             // Insert new user into the database
             try
             {
+                sqlConnection.Open();
+
                 var username = txtNewUsername.Text;
                 var password = txtNewPasswords.Text;
 
                 // Build a SQL command to insert data into the Users table
-                string query = $"INSERT INTO Users (Username, Password) VALUES ('{username}', '{password}')";
+                string query = $"INSERT INTO VendorCredentials (Username, Password) VALUES (@username, @password)";
 
                 // Run the query using the Access Application
-                acApp.DoCmd.RunSQL(query);
+                SqlCommand command = new SqlCommand(query, sqlConnection); 
+
+                command.Parameters.AddWithValue("username", username); 
+                command.Parameters.AddWithValue("password", password);
+
+                command.ExecuteNonQuery();
+                
+                sqlConnection.Close();
 
                 // Inform the user of a successful registration
                 MessageBox.Show("User Registered Successfully! Please go back and log in.");
