@@ -42,10 +42,6 @@
             this.vendorLoginDataSet = new WinFormsApp.VendorLoginDataSet();
             this.vendorCredentialsTableAdapter = new WinFormsApp.VendorLoginDataSetTableAdapters.VendorCredentialsTableAdapter();
             this.dgVendorDelivery = new System.Windows.Forms.DataGridView();
-            this.newVendorDB = new WinFormsApp.NewVendorDB();
-            this.newVendorDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoTableAdapter = new WinFormsApp.NewVendorDBTableAdapters.NewVendorInfoTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOCNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOCJobTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,26 +51,43 @@
             this.pOCCompanyAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.photoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newVendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorDB = new WinFormsApp.NewVendorDB();
+            this.newVendorInfoTableAdapter = new WinFormsApp.NewVendorDBTableAdapters.NewVendorInfoTableAdapter();
             this.dgNewVendor = new System.Windows.Forms.DataGridView();
             this.newVendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoData = new WinFormsApp.VendorInfoData();
+            this.vendorInfoDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoTableAdapter = new WinFormsApp.VendorInfoDataTableAdapters.VendorInfoTableAdapter();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOCNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOCJobTitleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOCEmailDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOCPhoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOCCompanyDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pOCCompanyAddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.photoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diaryProductsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newVendorInfoBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gdUserData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorLoginDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendorDelivery)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgNewVendor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // btnViewUserData
@@ -181,6 +194,7 @@
             // 
             // dgVendorDelivery
             // 
+            this.dgVendorDelivery.AllowUserToOrderColumns = true;
             this.dgVendorDelivery.AutoGenerateColumns = false;
             this.dgVendorDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVendorDelivery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -193,30 +207,11 @@
             this.pOCCompanyAddressDataGridViewTextBoxColumn,
             this.cityDataGridViewTextBoxColumn,
             this.photoDataGridViewTextBoxColumn});
-            this.dgVendorDelivery.DataSource = this.newVendorInfoBindingSource;
+            this.dgVendorDelivery.DataSource = this.newVendorInfoBindingSource4;
             this.dgVendorDelivery.Location = new System.Drawing.Point(203, 13);
             this.dgVendorDelivery.Name = "dgVendorDelivery";
             this.dgVendorDelivery.Size = new System.Drawing.Size(564, 347);
             this.dgVendorDelivery.TabIndex = 6;
-            // 
-            // newVendorDB
-            // 
-            this.newVendorDB.DataSetName = "NewVendorDB";
-            this.newVendorDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // newVendorDBBindingSource
-            // 
-            this.newVendorDBBindingSource.DataSource = this.newVendorDB;
-            this.newVendorDBBindingSource.Position = 0;
-            // 
-            // newVendorInfoBindingSource
-            // 
-            this.newVendorInfoBindingSource.DataMember = "NewVendorInfo";
-            this.newVendorInfoBindingSource.DataSource = this.newVendorDBBindingSource;
-            // 
-            // newVendorInfoTableAdapter
-            // 
-            this.newVendorInfoTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -272,24 +267,44 @@
             this.photoDataGridViewTextBoxColumn.HeaderText = "Photo";
             this.photoDataGridViewTextBoxColumn.Name = "photoDataGridViewTextBoxColumn";
             // 
+            // newVendorInfoBindingSource
+            // 
+            this.newVendorInfoBindingSource.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource.DataSource = this.newVendorDBBindingSource;
+            // 
+            // newVendorDBBindingSource
+            // 
+            this.newVendorDBBindingSource.DataSource = this.newVendorDB;
+            this.newVendorDBBindingSource.Position = 0;
+            // 
+            // newVendorDB
+            // 
+            this.newVendorDB.DataSetName = "NewVendorDB";
+            this.newVendorDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // newVendorInfoTableAdapter
+            // 
+            this.newVendorInfoTableAdapter.ClearBeforeFill = true;
+            // 
             // dgNewVendor
             // 
+            this.dgNewVendor.AllowUserToOrderColumns = true;
             this.dgNewVendor.AutoGenerateColumns = false;
             this.dgNewVendor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgNewVendor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn1,
-            this.pOCNameDataGridViewTextBoxColumn1,
-            this.pOCJobTitleDataGridViewTextBoxColumn1,
-            this.pOCEmailDataGridViewTextBoxColumn1,
-            this.pOCPhoneDataGridViewTextBoxColumn1,
-            this.pOCCompanyDataGridViewTextBoxColumn1,
-            this.pOCCompanyAddressDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn,
+            this.companyDataGridViewTextBoxColumn,
+            this.cellDataGridViewTextBoxColumn,
             this.cityDataGridViewTextBoxColumn1,
-            this.photoDataGridViewTextBoxColumn1});
-            this.dgNewVendor.DataSource = this.newVendorInfoBindingSource1;
-            this.dgNewVendor.Location = new System.Drawing.Point(203, 12);
+            this.productsDataGridViewTextBoxColumn,
+            this.diaryProductsDataGridViewTextBoxColumn,
+            this.deliveryDataGridViewTextBoxColumn,
+            this.paymentDataGridViewTextBoxColumn});
+            this.dgNewVendor.DataSource = this.vendorInfoBindingSource;
+            this.dgNewVendor.Location = new System.Drawing.Point(194, 13);
             this.dgNewVendor.Name = "dgNewVendor";
-            this.dgNewVendor.Size = new System.Drawing.Size(564, 347);
+            this.dgNewVendor.Size = new System.Drawing.Size(573, 347);
             this.dgNewVendor.TabIndex = 7;
             this.dgNewVendor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUserData_CellContentClick);
             // 
@@ -298,47 +313,58 @@
             this.newVendorInfoBindingSource1.DataMember = "NewVendorInfo";
             this.newVendorInfoBindingSource1.DataSource = this.newVendorDBBindingSource;
             // 
+            // newVendorInfoBindingSource2
+            // 
+            this.newVendorInfoBindingSource2.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource2.DataSource = this.newVendorDBBindingSource;
+            // 
+            // newVendorInfoBindingSource3
+            // 
+            this.newVendorInfoBindingSource3.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource3.DataSource = this.newVendorDBBindingSource;
+            // 
+            // vendorInfoData
+            // 
+            this.vendorInfoData.DataSetName = "VendorInfoData";
+            this.vendorInfoData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vendorInfoDataBindingSource
+            // 
+            this.vendorInfoDataBindingSource.DataSource = this.vendorInfoData;
+            this.vendorInfoDataBindingSource.Position = 0;
+            // 
+            // vendorInfoBindingSource
+            // 
+            this.vendorInfoBindingSource.DataMember = "VendorInfo";
+            this.vendorInfoBindingSource.DataSource = this.vendorInfoDataBindingSource;
+            // 
+            // vendorInfoTableAdapter
+            // 
+            this.vendorInfoTableAdapter.ClearBeforeFill = true;
+            // 
             // iDDataGridViewTextBoxColumn1
             // 
             this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
             // 
-            // pOCNameDataGridViewTextBoxColumn1
+            // nameDataGridViewTextBoxColumn
             // 
-            this.pOCNameDataGridViewTextBoxColumn1.DataPropertyName = "POC_Name";
-            this.pOCNameDataGridViewTextBoxColumn1.HeaderText = "POC_Name";
-            this.pOCNameDataGridViewTextBoxColumn1.Name = "pOCNameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // pOCJobTitleDataGridViewTextBoxColumn1
+            // companyDataGridViewTextBoxColumn
             // 
-            this.pOCJobTitleDataGridViewTextBoxColumn1.DataPropertyName = "POC_JobTitle";
-            this.pOCJobTitleDataGridViewTextBoxColumn1.HeaderText = "POC_JobTitle";
-            this.pOCJobTitleDataGridViewTextBoxColumn1.Name = "pOCJobTitleDataGridViewTextBoxColumn1";
+            this.companyDataGridViewTextBoxColumn.DataPropertyName = "Company";
+            this.companyDataGridViewTextBoxColumn.HeaderText = "Company";
+            this.companyDataGridViewTextBoxColumn.Name = "companyDataGridViewTextBoxColumn";
             // 
-            // pOCEmailDataGridViewTextBoxColumn1
+            // cellDataGridViewTextBoxColumn
             // 
-            this.pOCEmailDataGridViewTextBoxColumn1.DataPropertyName = "POC_Email";
-            this.pOCEmailDataGridViewTextBoxColumn1.HeaderText = "POC_Email";
-            this.pOCEmailDataGridViewTextBoxColumn1.Name = "pOCEmailDataGridViewTextBoxColumn1";
-            // 
-            // pOCPhoneDataGridViewTextBoxColumn1
-            // 
-            this.pOCPhoneDataGridViewTextBoxColumn1.DataPropertyName = "POC_Phone";
-            this.pOCPhoneDataGridViewTextBoxColumn1.HeaderText = "POC_Phone";
-            this.pOCPhoneDataGridViewTextBoxColumn1.Name = "pOCPhoneDataGridViewTextBoxColumn1";
-            // 
-            // pOCCompanyDataGridViewTextBoxColumn1
-            // 
-            this.pOCCompanyDataGridViewTextBoxColumn1.DataPropertyName = "POC_Company";
-            this.pOCCompanyDataGridViewTextBoxColumn1.HeaderText = "POC_Company";
-            this.pOCCompanyDataGridViewTextBoxColumn1.Name = "pOCCompanyDataGridViewTextBoxColumn1";
-            // 
-            // pOCCompanyAddressDataGridViewTextBoxColumn1
-            // 
-            this.pOCCompanyAddressDataGridViewTextBoxColumn1.DataPropertyName = "POC_CompanyAddress";
-            this.pOCCompanyAddressDataGridViewTextBoxColumn1.HeaderText = "POC_CompanyAddress";
-            this.pOCCompanyAddressDataGridViewTextBoxColumn1.Name = "pOCCompanyAddressDataGridViewTextBoxColumn1";
+            this.cellDataGridViewTextBoxColumn.DataPropertyName = "Cell";
+            this.cellDataGridViewTextBoxColumn.HeaderText = "Cell";
+            this.cellDataGridViewTextBoxColumn.Name = "cellDataGridViewTextBoxColumn";
             // 
             // cityDataGridViewTextBoxColumn1
             // 
@@ -346,11 +372,34 @@
             this.cityDataGridViewTextBoxColumn1.HeaderText = "City";
             this.cityDataGridViewTextBoxColumn1.Name = "cityDataGridViewTextBoxColumn1";
             // 
-            // photoDataGridViewTextBoxColumn1
+            // productsDataGridViewTextBoxColumn
             // 
-            this.photoDataGridViewTextBoxColumn1.DataPropertyName = "Photo";
-            this.photoDataGridViewTextBoxColumn1.HeaderText = "Photo";
-            this.photoDataGridViewTextBoxColumn1.Name = "photoDataGridViewTextBoxColumn1";
+            this.productsDataGridViewTextBoxColumn.DataPropertyName = "Products";
+            this.productsDataGridViewTextBoxColumn.HeaderText = "Products";
+            this.productsDataGridViewTextBoxColumn.Name = "productsDataGridViewTextBoxColumn";
+            // 
+            // diaryProductsDataGridViewTextBoxColumn
+            // 
+            this.diaryProductsDataGridViewTextBoxColumn.DataPropertyName = "Diary_Products";
+            this.diaryProductsDataGridViewTextBoxColumn.HeaderText = "Diary_Products";
+            this.diaryProductsDataGridViewTextBoxColumn.Name = "diaryProductsDataGridViewTextBoxColumn";
+            // 
+            // deliveryDataGridViewTextBoxColumn
+            // 
+            this.deliveryDataGridViewTextBoxColumn.DataPropertyName = "Delivery";
+            this.deliveryDataGridViewTextBoxColumn.HeaderText = "Delivery";
+            this.deliveryDataGridViewTextBoxColumn.Name = "deliveryDataGridViewTextBoxColumn";
+            // 
+            // paymentDataGridViewTextBoxColumn
+            // 
+            this.paymentDataGridViewTextBoxColumn.DataPropertyName = "Payment";
+            this.paymentDataGridViewTextBoxColumn.HeaderText = "Payment";
+            this.paymentDataGridViewTextBoxColumn.Name = "paymentDataGridViewTextBoxColumn";
+            // 
+            // newVendorInfoBindingSource4
+            // 
+            this.newVendorInfoBindingSource4.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource4.DataSource = this.newVendorDB;
             // 
             // Admin
             // 
@@ -372,11 +421,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorLoginDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendorDelivery)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgNewVendor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,15 +465,22 @@
         private DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn photoDataGridViewTextBoxColumn;
         private DataGridView dgNewVendor;
-        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn pOCNameDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn pOCJobTitleDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn pOCEmailDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn pOCPhoneDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn pOCCompanyDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn pOCCompanyAddressDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn photoDataGridViewTextBoxColumn1;
         private BindingSource newVendorInfoBindingSource1;
+        private BindingSource newVendorInfoBindingSource2;
+        private BindingSource newVendorInfoBindingSource3;
+        private BindingSource vendorInfoDataBindingSource;
+        private VendorInfoData vendorInfoData;
+        private BindingSource vendorInfoBindingSource;
+        private VendorInfoDataTableAdapters.VendorInfoTableAdapter vendorInfoTableAdapter;
+        private BindingSource newVendorInfoBindingSource4;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn companyDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cellDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn diaryProductsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn deliveryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn paymentDataGridViewTextBoxColumn;
     }
 }

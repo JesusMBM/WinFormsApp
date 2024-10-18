@@ -78,6 +78,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>VendorLoginDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Update="VendorLoginDataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VendorLoginDataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -103,6 +108,10 @@
     <None Update="VendorLoginDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>VendorLoginDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="VendorLoginDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VendorLoginDataSet1.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
