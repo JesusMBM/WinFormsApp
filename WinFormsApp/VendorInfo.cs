@@ -7,25 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel; // Adding an Excel object
+using System.Data.SqlClient;
 
 namespace WinFormsApp
 {
     public partial class VendorInfo : Form
     {
 
-        // Create Excel App
-        private Excel.Application xlApp;
-       // private string dbpath = @"C:\Users\VMware\Desktop\MIS 555\Vendor.xlsx"; // Excel Path for VMware
-        private string dbpath = @"C:\Users\Jesus\Desktop\WinFormsApp-master\VendorInfo.xlsx"; // Excel Path for Desktop
+        private SqlConnection sqlConnection;
+        private string connectionString = @"Data Source=DESKTOP-3RCAUPI\SQLEXPRESS02;Initial Catalog=VendorLogin;Integrated Security=True;TrustServerCertificate=True"; // Access File Path
+
 
         public VendorInfo()
         {
             InitializeComponent();
 
-            xlApp = new Excel.Application();
-            Excel.Workbook xlWorbook;
-            Excel.Worksheet xlWorkSheet;
+            sqlConnection = new SqlConnection(connectionString);
+        }
+
+        private int GetNextId(SqlConnection sqlConnection)
+        {
+            sqlConnection.Open();
+            string querry = "SELECT ISNULL (MAX(ID), 0) + 1 FROM VendorInfo";
+            SqlCommand cmd = new SqlCommand(querry, sqlConnection);
+
+            return Convert.ToInt32(cmd.ExecuteScalar());
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -45,66 +51,91 @@ namespace WinFormsApp
 
         private void btnSave_Click_2(object sender, EventArgs e)
         {
-            // Initalize Excel App
-            var xlWorkBook = xlApp.Workbooks.Open(dbpath);
-            var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets["Sheet1"];
+            // Define the connection string (replace with your actual connection string)
+            string connectionString = "your_connection_string_here";
 
-            try
+            // Construct the SQL insert query
+            string sqlCommandText = "INSERT INTO VendorInfo (Name, Company, Cell, Products, Diary_products, Delivery, Payment) " +
+                                    "VALUES (@Name, @Company, @Cell, @Products, @Diary_products, @Delivery, @Payment)";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                // Find the first empty row 
-                int iRow = 2; // Row 1 has headers, starting form the 2nd row
-
-                while (xlWorkSheet.Cells[iRow, 1].Value != null) // This Checks if the value in the cell is not null
+                try
                 {
-                    iRow++; // Move to the Next Row if the current is not empty
+                    // Open the SQL connection
+                    sqlConnection.Open();
+
+                    // Get the next available ID (assuming you have a function like the one in the screenshot)
+                    long nextID = GetNextId(sqlConnection); // You'll need to implement GetNextId
+
+                    using (SqlCommand sqlCommand = new SqlCommand(sqlCommandText, sqlConnection))
+                    {
+                        // Add parameters for the SQL command
+                        sqlCommand.Parameters.AddWithValue("@Name", txtName.Text);
+                        sqlCommand.Parameters.AddWithValue("@Company", txtCompany.Text);
+                        sqlCommand.Parameters.AddWithValue("@Cell", txtCell.Text);
+                        sqlCommand.Parameters.AddWithValue("@Products", listBox1.GetItemText(listBox1.SelectedItem));
+
+                        // Determine product, dairy product, delivery status, and payment status based on user input
+                        string product = rdCoffee.Checked ? "Coffee" :
+                                         rdTea.Checked ? "Green Tea" :
+                                         rdHerb.Checked ? "Herbs" : "";
+                        sqlCommand.Parameters.AddWithValue("@Products", product);
+
+                        string dairyProduct = rdMilk.Checked ? "Milk" :
+                                              rdCream.Checked ? "Cream" : "";
+                        sqlCommand.Parameters.AddWithValue("@Diary_products", dairyProduct);
+
+                        string deliveryStatus = ckDelayed.Checked ? "Delayed" :
+                                                ckOntime.Checked ? "On Time" : "";
+                        sqlCommand.Parameters.AddWithValue("@Delivery", deliveryStatus);
+
+                        string paymentStatus = ckPaid.Checked ? "Paid" :
+                                               ckUnpaid.Checked ? "Unpaid" : "";
+                        sqlCommand.Parameters.AddWithValue("@Payment", paymentStatus);
+
+                        // Execute the SQL query
+                        sqlCommand.ExecuteNonQuery();
+                    }
+
+                    // Show success message
+                    MessageBox.Show("Vendor information saved successfully!");
+
                 }
-
-                // Writing Data
-                xlWorkSheet.Cells[iRow, 1].Value = txtName.Text;
-                xlWorkSheet.Cells[iRow, 2].Value = txtCompany.Text;
-                xlWorkSheet.Cells[iRow, 3].Value = txtCell.Text;
-                xlWorkSheet.Cells[iRow, 4].Value = listBox1.GetItemText(listBox1.SelectedItem);
-
-                string product = rdCoffee.Checked ? "Coffee" :
-                                 rdTea.Checked ? "Green Tea" :
-                                 rdHerb.Checked ? "Herbs" : "";
-
-                xlWorkSheet.Cells[iRow, 5].Value = product;
-
-                string dairyproduct = rdMilk.Checked ? "Milk" :
-                                    rdCream.Checked ? "Cream" : "";
-                xlWorkSheet.Cells[iRow, 6].Value = dairyproduct;
-
-                string deliverystatus = ckDelayed.Checked ? "Delayed" :
-                                        ckOntime.Checked ? "On Time" : "";
-                xlWorkSheet.Cells[iRow, 7].Value = deliverystatus;
-
-                string paymentstatus = ckPaid.Checked ? "Paid" :
-                                       ckUnpaid.Checked ? "Unpaid" : "";
-                xlWorkSheet.Cells[iRow, 8].value = paymentstatus;
-
-                MessageBox.Show("Vendor Information saved succesfully!");
-
-                xlWorkBook.Save();
-                xlWorkBook.Close(true);
-                xlApp.Quit();
+                catch (Exception ex)
+                {
+                    // Show error message in case of failure
+                    MessageBox.Show("Failed to save data to SQL: " + ex.Message);
+                }
+                finally
+                {
+                    // Close the SQL connection
+                    sqlConnection.Close();
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to write to Excel: " + ex.Message);
-            }
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-
-            }
-
         }
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
+
+
+

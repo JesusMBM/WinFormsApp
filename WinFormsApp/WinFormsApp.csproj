@@ -58,6 +58,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>NewVendorDB.xsd</DependentUpon>
     </Compile>
+    <Compile Update="NewVendorInfoDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NewVendorInfoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="NewVendorInfoDBpic.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NewVendorInfoDBpic.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -96,6 +106,14 @@
     <None Update="NewVendorDB.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>NewVendorDB.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="NewVendorInfoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NewVendorInfoDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="NewVendorInfoDBpic.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NewVendorInfoDBpic.Designer.cs</LastGenOutput>
     </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

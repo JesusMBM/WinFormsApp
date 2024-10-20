@@ -1,20 +1,33 @@
-﻿using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+﻿using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WinFormsApp
 {
     public partial class NewVendorInfo : Form
     {
-        private Excel.Application xlApp;
-        private string dbpath = @"C:\Users\Jesus\Desktop\WinFormsApp-master\NewVendorInfo.xlsx";
+
+        private SqlConnection sqlConnection;
+        private string connectionString = @"Data Source=DESKTOP-3RCAUPI\SQLEXPRESS02;Initial Catalog=VendorLogin;Integrated Security=True;TrustServerCertificate=True"; // Access File Path
+
         public NewVendorInfo()
         {
             InitializeComponent();
 
-            xlApp = new Excel.Application();
-            Excel.Workbook xlWorkBook;
-            Excel.Workbook xlWorkSheet;
+            sqlConnection = new SqlConnection(connectionString);
+
         }
+
+        private int GetNextId(SqlConnection sqlConnection)
+        {
+            sqlConnection.Open();
+
+            string query = "SELECT ISNULL (MAX(NEW_VID), 0) + 1 FROM NewVendorInfo";
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            return (int)cmd.ExecuteScalar();
+        }
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -26,63 +39,69 @@ namespace WinFormsApp
 
         }
 
+        private byte[] GetPhoto()
+        {
+            if (picVendorPhoto.Image != null)
+            {
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    picVendorPhoto.Image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                    return stream.ToArray();
+                }
+            }
+            return null;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            var xlWorkBook = xlApp.Workbooks.Open(dbpath);
-            var xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets["Sheet1"];
-            try
+            // Initialize SQL command and set the command text for insertion
+            string sqlCommandText = "INSERT INTO NewVendorDB (New_VID, POC_Name, POC_JobTitle, POC_Email, POC_Phone, POC_Company, POC_CompAddress, City, Photo) " +
+                                    "VALUES (@New_VID, @POC_Name, @POC_JobTitle, @POC_Email, @POC_Phone, @POC_Company, @POC_CompAddress, @City, @Photo)";
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                // Find the first empty row 
-                int iRow = 2; // Row 1 has headers, starting form the 2nd row
-
-                while (xlWorkSheet.Cells[iRow, 1].Value != null) // This Checks if the value in the cell is not null
+                try
                 {
-                    iRow++; // Move to the Next Row if the current is not empty
+                    // Open SQL connection
+                    sqlConnection.Open();
+
+                    // Get the next ID (assuming you have a method for generating the next available ID)
+                    long nextID = GetNextId(sqlConnection);
+
+                    using (SqlCommand sqlCommand = new SqlCommand(sqlCommandText, sqlConnection))
+                    {
+                        // Add parameters to the SQL command
+                        sqlCommand.Parameters.AddWithValue("@New_VID", nextID);
+                        sqlCommand.Parameters.AddWithValue("@POC_Name", txtPOCName.Text);
+                        sqlCommand.Parameters.AddWithValue("@POC_JobTitle", txtPOCJobTitle.Text);
+                        sqlCommand.Parameters.AddWithValue("@POC_Email", txtPOCEmail.Text);
+                        sqlCommand.Parameters.AddWithValue("@POC_Phone", txtPOCPhone.Text);
+                        sqlCommand.Parameters.AddWithValue("@POC_Company", txtPOCCompany.Text);
+                        sqlCommand.Parameters.AddWithValue("@POC_CompAddress", txtComapanyAddress.Text);
+                        sqlCommand.Parameters.AddWithValue("@City", listBox2.GetItemText(listBox2.SelectedItem));
+
+                        // If the picture is present in the PictureBox, add the logic for photo later (as per screenshot)
+                        sqlCommand.Parameters.AddWithValue("@Photo", GetPhoto());
+
+                        // Execute the SQL command
+                        sqlCommand.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("New vendor information saved successfully!");
                 }
-
-                // Writing Data from the New Vendor Request form to Excel
-                xlWorkSheet.Cells[iRow, 1].Value = txtPOCName.Text;
-                xlWorkSheet.Cells[iRow, 2].Value = txtPOCJobTitle.Text;
-                xlWorkSheet.Cells[iRow, 3].Value = txtPOCEmail.Text;
-                xlWorkSheet.Cells[iRow, 4].Value = txtPOCPhone.Text;
-                xlWorkSheet.Cells[iRow, 5].Value = txtPOCCompany.Text;
-                xlWorkSheet.Cells[iRow, 6].Value = txtComapanyAddress.Text;
-                xlWorkSheet.Cells[iRow, 7].Value = listBox2.GetItemText(listBox2.SelectedItem);
-
-                if (picVendorPhoto.Image != null)  // Check if the PictureBox has an image
+                catch (Exception ex)
                 {
-                    var ms = new MemoryStream();
-                    picVendorPhoto.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    ms.Position = 0;
-
-                    string tempImagePath = Path.GetTempFileName() + ".png";
-                    File.WriteAllBytes(tempImagePath, ms.ToArray());
-
-                    float left = Convert.ToSingle(xlWorkSheet.Cells[iRow, 8].Left);
-                    float top = Convert.ToSingle(xlWorkSheet.Cells[iRow, 8].Top);
-
-                    xlWorkSheet.Shapes.AddPicture(tempImagePath,
-                                                   Microsoft.Office.Core.MsoTriState.msoFalse,
-                                                   Microsoft.Office.Core.MsoTriState.msoCTrue,
-                                                   left, top, 15, 15);
-                    ms.Close();
-
+                    // Display any errors
+                    MessageBox.Show("Failed to save vendor information: " + ex.Message);
                 }
-
-                MessageBox.Show("Vendor Information saved successfully!");
-
-                // Save and close the workbook
-                xlWorkBook.Save();
-                xlWorkBook.Close(true);
-                xlApp.Quit();
-
+                finally
+                {
+                    // Close the SQL connection
+                    sqlConnection.Close();
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to write to Excel: " + ex.Message);
-            }
-
         }
+
 
         private void btnUploadPhoto_Click_1(object sender, EventArgs e)
         {
@@ -110,16 +129,27 @@ namespace WinFormsApp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
 
         private void btnExit_Click(object sender, EventArgs e)
-            {
-                Application.Exit();
-            }
+        {
+            Application.Exit();
+        }
+
+        private void txtPOCName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewData_Click(object sender, EventArgs e)
+        {
+            new Admin().Show();
+            this.Close();
         }
     }
+}
 
 

@@ -51,6 +51,7 @@
             this.btnNewLog = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnViewData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picVendorPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,7 @@
             this.txtPOCName.Name = "txtPOCName";
             this.txtPOCName.Size = new System.Drawing.Size(327, 50);
             this.txtPOCName.TabIndex = 3;
+            this.txtPOCName.TextChanged += new System.EventHandler(this.txtPOCName_TextChanged);
             // 
             // txtPOCJobTitle
             // 
@@ -327,10 +329,21 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnViewData
+            // 
+            this.btnViewData.Location = new System.Drawing.Point(408, 554);
+            this.btnViewData.Name = "btnViewData";
+            this.btnViewData.Size = new System.Drawing.Size(98, 23);
+            this.btnViewData.TabIndex = 22;
+            this.btnViewData.Text = "View Data";
+            this.btnViewData.UseVisualStyleBackColor = true;
+            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
+            // 
             // NewVendorInfo
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(834, 589);
+            this.Controls.Add(this.btnViewData);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnNewLog);
             this.Controls.Add(this.btnSave);
@@ -385,5 +398,6 @@
         private Button btnNewLog;
         private OpenFileDialog openFileDialog1;
         private Button btnExit;
+        private Button btnViewData;
     }
 }

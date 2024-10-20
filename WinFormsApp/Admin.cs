@@ -19,10 +19,10 @@ namespace WinFormsApp
 
         private void Admin_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'newVendorInfoDBpic.NewVendorInfo' table. You can move, or remove it, as needed.
+            this.newVendorInfoTableAdapter1.Fill(this.newVendorInfoDBpic.NewVendorInfo);
             // TODO: This line of code loads data into the 'vendorInfoData.VendorInfo' table. You can move, or remove it, as needed.
             this.vendorInfoTableAdapter.Fill(this.vendorInfoData.VendorInfo);
-            // TODO: This line of code loads data into the 'newVendorDB.NewVendorInfo' table. You can move, or remove it, as needed.
-            this.newVendorInfoTableAdapter.Fill(this.newVendorDB.NewVendorInfo);
             // TODO: This line of code loads data into the 'vendorLoginDataSet.VendorCredentials' table. You can move, or remove it, as needed.
             this.vendorCredentialsTableAdapter.Fill(this.vendorLoginDataSet.VendorCredentials);
 
@@ -56,8 +56,8 @@ namespace WinFormsApp
 
         private void btnViewVendorDelivery_Click(object sender, EventArgs e)
         {
-            this.newVendorInfoTableAdapter.Fill(this.newVendorDB.NewVendorInfo);
-            dgVendorDelivery.DataSource = this.newVendorDB.NewVendorInfo;
+            this.vendorInfoTableAdapter.Fill(this.vendorInfoData.VendorInfo);
+            dgVendorDelivery.DataSource = this.vendorInfoData.VendorInfo;
 
             dgVendorDelivery.Visible = true;
             dgVendorDelivery.BringToFront();
@@ -67,9 +67,10 @@ namespace WinFormsApp
 
         private void btnViewVendorData_Click(object sender, EventArgs e)
         {
-            this.vendorInfoTableAdapter.Fill(this.vendorInfoData.VendorInfo);
+            this.newVendorInfoTableAdapter1.Fill(this.newVendorInfoDBpic.NewVendorInfo);
 
-            dgNewVendor.DataSource = this.vendorInfoData.VendorInfo;
+
+            dgNewVendor.DataSource = this.newVendorInfoDBpic.NewVendorInfo;
 
             dgNewVendor.Visible = true;
             dgNewVendor.BringToFront();

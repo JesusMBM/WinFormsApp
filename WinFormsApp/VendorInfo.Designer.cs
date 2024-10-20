@@ -53,6 +53,8 @@ namespace WinFormsApp
             this.ckUnpaid = new System.Windows.Forms.CheckBox();
             this.ckPaid = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -204,6 +206,7 @@ namespace WinFormsApp
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label1
             // 
@@ -387,7 +390,7 @@ namespace WinFormsApp
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(585, 371);
+            this.btnSave.Location = new System.Drawing.Point(513, 371);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 19);
@@ -396,11 +399,35 @@ namespace WinFormsApp
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_2);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(434, 371);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(69, 19);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(586, 371);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(69, 19);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // VendorInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 399);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -452,5 +479,7 @@ namespace WinFormsApp
         private Button btnSave;
         private EventHandler groupBox1_Enter;
         private EventHandler label2_Click;
+        private Button btnBack;
+        private Button btnExit;
     }
 }
