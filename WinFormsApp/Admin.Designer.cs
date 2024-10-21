@@ -35,32 +35,13 @@
             this.btnBackLogin = new System.Windows.Forms.Button();
             this.btnNewVendorLogin = new System.Windows.Forms.Button();
             this.gdUserData = new System.Windows.Forms.DataGridView();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vendorCredentialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorLoginDataSet = new WinFormsApp.VendorLoginDataSet();
-            this.vendorCredentialsTableAdapter = new WinFormsApp.VendorLoginDataSetTableAdapters.VendorCredentialsTableAdapter();
             this.dgVendorDelivery = new System.Windows.Forms.DataGridView();
-            this.newVendorInfoBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorDB = new WinFormsApp.NewVendorDB();
             this.newVendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoTableAdapter = new WinFormsApp.NewVendorDBTableAdapters.NewVendorInfoTableAdapter();
             this.dgNewVendor = new System.Windows.Forms.DataGridView();
             this.vendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorInfoDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorInfoData = new WinFormsApp.VendorInfoData();
             this.newVendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.newVendorInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.newVendorInfoBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorInfoTableAdapter = new WinFormsApp.VendorInfoDataTableAdapters.VendorInfoTableAdapter();
-            this.newVendorInfoBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoDBpic = new WinFormsApp.NewVendorInfoDBpic();
-            this.newVendorInfoDBpicBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
-            this.newVendorInfoTableAdapter1 = new WinFormsApp.NewVendorInfoDBpicTableAdapters.NewVendorInfoTableAdapter();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOCNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pOCJobTitleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,9 +51,34 @@
             this.pOCCompanyAddressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.photoDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.vendorCredentialsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoDBpic = new WinFormsApp.NewVendorInfoDBpic();
             this.vendorInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoData = new WinFormsApp.VendorInfoData();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendorCredentialsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorLoginDataSet = new WinFormsApp.VendorLoginDataSet();
+            this.vendorCredentialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorCredentialsTableAdapter = new WinFormsApp.VendorLoginDataSetTableAdapters.VendorCredentialsTableAdapter();
+            this.newVendorInfoBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorDB = new WinFormsApp.NewVendorDB();
+            this.newVendorDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoTableAdapter = new WinFormsApp.NewVendorDBTableAdapters.NewVendorInfoTableAdapter();
+            this.vendorInfoDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoTableAdapter = new WinFormsApp.VendorInfoDataTableAdapters.VendorInfoTableAdapter();
+            this.newVendorInfoBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoDBpicBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoTableAdapter1 = new WinFormsApp.NewVendorInfoDBpicTableAdapters.NewVendorInfoTableAdapter();
+            this.vendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.azureVendorLogin = new WinFormsApp.AzureVendorLogin();
+            this.vendorCredentialsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorCredentialsTableAdapter1 = new WinFormsApp.AzureVendorLoginTableAdapters.VendorCredentialsTableAdapter();
+            this.vendorCredentialsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorInfoTableAdapter1 = new WinFormsApp.AzureVendorLoginTableAdapters.VendorInfoTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,29 +88,36 @@
             this.diaryProductsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paymentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newVendorInfoBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
+            this.newVendorInfoTableAdapter2 = new WinFormsApp.AzureVendorLoginTableAdapters.NewVendorInfoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.gdUserData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorLoginDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendorDelivery)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgNewVendor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoDBpic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorLoginDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoDBpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoDBpicBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.azureVendorLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource8)).BeginInit();
             this.SuspendLayout();
             // 
             // btnViewUserData
@@ -171,43 +184,11 @@
             this.usernameDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn});
-            this.gdUserData.DataSource = this.vendorCredentialsBindingSource1;
+            this.gdUserData.DataSource = this.vendorCredentialsBindingSource2;
             this.gdUserData.Location = new System.Drawing.Point(203, 13);
             this.gdUserData.Name = "gdUserData";
             this.gdUserData.Size = new System.Drawing.Size(564, 347);
             this.gdUserData.TabIndex = 5;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            // 
-            // vendorCredentialsBindingSource
-            // 
-            this.vendorCredentialsBindingSource.DataMember = "VendorCredentials";
-            this.vendorCredentialsBindingSource.DataSource = this.vendorLoginDataSet;
-            // 
-            // vendorLoginDataSet
-            // 
-            this.vendorLoginDataSet.DataSetName = "VendorLoginDataSet";
-            this.vendorLoginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vendorCredentialsTableAdapter
-            // 
-            this.vendorCredentialsTableAdapter.ClearBeforeFill = true;
             // 
             // dgVendorDelivery
             // 
@@ -224,35 +205,16 @@
             this.diaryProductsDataGridViewTextBoxColumn,
             this.deliveryDataGridViewTextBoxColumn,
             this.paymentDataGridViewTextBoxColumn});
-            this.dgVendorDelivery.DataSource = this.vendorInfoBindingSource2;
-            this.dgVendorDelivery.Location = new System.Drawing.Point(203, 12);
+            this.dgVendorDelivery.DataSource = this.vendorInfoBindingSource3;
+            this.dgVendorDelivery.Location = new System.Drawing.Point(203, 13);
             this.dgVendorDelivery.Name = "dgVendorDelivery";
             this.dgVendorDelivery.Size = new System.Drawing.Size(564, 347);
             this.dgVendorDelivery.TabIndex = 6;
-            // 
-            // newVendorInfoBindingSource4
-            // 
-            this.newVendorInfoBindingSource4.DataMember = "NewVendorInfo";
-            this.newVendorInfoBindingSource4.DataSource = this.newVendorDB;
-            // 
-            // newVendorDB
-            // 
-            this.newVendorDB.DataSetName = "NewVendorDB";
-            this.newVendorDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // newVendorInfoBindingSource
             // 
             this.newVendorInfoBindingSource.DataMember = "NewVendorInfo";
             this.newVendorInfoBindingSource.DataSource = this.newVendorDBBindingSource;
-            // 
-            // newVendorDBBindingSource
-            // 
-            this.newVendorDBBindingSource.DataSource = this.newVendorDB;
-            this.newVendorDBBindingSource.Position = 0;
-            // 
-            // newVendorInfoTableAdapter
-            // 
-            this.newVendorInfoTableAdapter.ClearBeforeFill = true;
             // 
             // dgNewVendor
             // 
@@ -269,7 +231,7 @@
             this.pOCCompanyAddressDataGridViewTextBoxColumn1,
             this.cityDataGridViewTextBoxColumn1,
             this.photoDataGridViewImageColumn});
-            this.dgNewVendor.DataSource = this.newVendorInfoBindingSource7;
+            this.dgNewVendor.DataSource = this.newVendorInfoBindingSource8;
             this.dgNewVendor.Location = new System.Drawing.Point(203, 12);
             this.dgNewVendor.Name = "dgNewVendor";
             this.dgNewVendor.Size = new System.Drawing.Size(573, 347);
@@ -280,16 +242,6 @@
             // 
             this.vendorInfoBindingSource.DataMember = "VendorInfo";
             this.vendorInfoBindingSource.DataSource = this.vendorInfoDataBindingSource;
-            // 
-            // vendorInfoDataBindingSource
-            // 
-            this.vendorInfoDataBindingSource.DataSource = this.vendorInfoData;
-            this.vendorInfoDataBindingSource.Position = 0;
-            // 
-            // vendorInfoData
-            // 
-            this.vendorInfoData.DataSetName = "VendorInfoData";
-            this.vendorInfoData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // newVendorInfoBindingSource1
             // 
@@ -305,39 +257,6 @@
             // 
             this.newVendorInfoBindingSource3.DataMember = "NewVendorInfo";
             this.newVendorInfoBindingSource3.DataSource = this.newVendorDBBindingSource;
-            // 
-            // vendorInfoTableAdapter
-            // 
-            this.vendorInfoTableAdapter.ClearBeforeFill = true;
-            // 
-            // newVendorInfoBindingSource5
-            // 
-            this.newVendorInfoBindingSource5.DataMember = "NewVendorInfo";
-            this.newVendorInfoBindingSource5.DataSource = this.newVendorDB;
-            // 
-            // newVendorInfoBindingSource6
-            // 
-            this.newVendorInfoBindingSource6.DataMember = "NewVendorInfo";
-            this.newVendorInfoBindingSource6.DataSource = this.newVendorDB;
-            // 
-            // newVendorInfoDBpic
-            // 
-            this.newVendorInfoDBpic.DataSetName = "NewVendorInfoDBpic";
-            this.newVendorInfoDBpic.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // newVendorInfoDBpicBindingSource
-            // 
-            this.newVendorInfoDBpicBindingSource.DataSource = this.newVendorInfoDBpic;
-            this.newVendorInfoDBpicBindingSource.Position = 0;
-            // 
-            // newVendorInfoBindingSource7
-            // 
-            this.newVendorInfoBindingSource7.DataMember = "NewVendorInfo";
-            this.newVendorInfoBindingSource7.DataSource = this.newVendorInfoDBpic;
-            // 
-            // newVendorInfoTableAdapter1
-            // 
-            this.newVendorInfoTableAdapter1.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -393,20 +312,142 @@
             this.photoDataGridViewImageColumn.HeaderText = "Photo";
             this.photoDataGridViewImageColumn.Name = "photoDataGridViewImageColumn";
             // 
+            // newVendorInfoBindingSource7
+            // 
+            this.newVendorInfoBindingSource7.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource7.DataSource = this.newVendorInfoDBpic;
+            // 
+            // newVendorInfoDBpic
+            // 
+            this.newVendorInfoDBpic.DataSetName = "NewVendorInfoDBpic";
+            this.newVendorInfoDBpic.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vendorInfoBindingSource2
+            // 
+            this.vendorInfoBindingSource2.DataMember = "VendorInfo";
+            this.vendorInfoBindingSource2.DataSource = this.vendorInfoData;
+            // 
+            // vendorInfoData
+            // 
+            this.vendorInfoData.DataSetName = "VendorInfoData";
+            this.vendorInfoData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
             // vendorCredentialsBindingSource1
             // 
             this.vendorCredentialsBindingSource1.DataMember = "VendorCredentials";
             this.vendorCredentialsBindingSource1.DataSource = this.vendorLoginDataSet;
+            // 
+            // vendorLoginDataSet
+            // 
+            this.vendorLoginDataSet.DataSetName = "VendorLoginDataSet";
+            this.vendorLoginDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vendorCredentialsBindingSource
+            // 
+            this.vendorCredentialsBindingSource.DataMember = "VendorCredentials";
+            this.vendorCredentialsBindingSource.DataSource = this.vendorLoginDataSet;
+            // 
+            // vendorCredentialsTableAdapter
+            // 
+            this.vendorCredentialsTableAdapter.ClearBeforeFill = true;
+            // 
+            // newVendorInfoBindingSource4
+            // 
+            this.newVendorInfoBindingSource4.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource4.DataSource = this.newVendorDB;
+            // 
+            // newVendorDB
+            // 
+            this.newVendorDB.DataSetName = "NewVendorDB";
+            this.newVendorDB.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // newVendorDBBindingSource
+            // 
+            this.newVendorDBBindingSource.DataSource = this.newVendorDB;
+            this.newVendorDBBindingSource.Position = 0;
+            // 
+            // newVendorInfoTableAdapter
+            // 
+            this.newVendorInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // vendorInfoDataBindingSource
+            // 
+            this.vendorInfoDataBindingSource.DataSource = this.vendorInfoData;
+            this.vendorInfoDataBindingSource.Position = 0;
+            // 
+            // vendorInfoTableAdapter
+            // 
+            this.vendorInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // newVendorInfoBindingSource5
+            // 
+            this.newVendorInfoBindingSource5.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource5.DataSource = this.newVendorDB;
+            // 
+            // newVendorInfoBindingSource6
+            // 
+            this.newVendorInfoBindingSource6.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource6.DataSource = this.newVendorDB;
+            // 
+            // newVendorInfoDBpicBindingSource
+            // 
+            this.newVendorInfoDBpicBindingSource.DataSource = this.newVendorInfoDBpic;
+            this.newVendorInfoDBpicBindingSource.Position = 0;
+            // 
+            // newVendorInfoTableAdapter1
+            // 
+            this.newVendorInfoTableAdapter1.ClearBeforeFill = true;
             // 
             // vendorInfoBindingSource1
             // 
             this.vendorInfoBindingSource1.DataMember = "VendorInfo";
             this.vendorInfoBindingSource1.DataSource = this.vendorInfoData;
             // 
-            // vendorInfoBindingSource2
+            // azureVendorLogin
             // 
-            this.vendorInfoBindingSource2.DataMember = "VendorInfo";
-            this.vendorInfoBindingSource2.DataSource = this.vendorInfoData;
+            this.azureVendorLogin.DataSetName = "AzureVendorLogin";
+            this.azureVendorLogin.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vendorCredentialsBindingSource2
+            // 
+            this.vendorCredentialsBindingSource2.DataMember = "VendorCredentials";
+            this.vendorCredentialsBindingSource2.DataSource = this.azureVendorLogin;
+            // 
+            // vendorCredentialsTableAdapter1
+            // 
+            this.vendorCredentialsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // vendorCredentialsBindingSource3
+            // 
+            this.vendorCredentialsBindingSource3.DataMember = "VendorCredentials";
+            this.vendorCredentialsBindingSource3.DataSource = this.azureVendorLogin;
+            // 
+            // vendorInfoBindingSource3
+            // 
+            this.vendorInfoBindingSource3.DataMember = "VendorInfo";
+            this.vendorInfoBindingSource3.DataSource = this.azureVendorLogin;
+            // 
+            // vendorInfoTableAdapter1
+            // 
+            this.vendorInfoTableAdapter1.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -462,6 +503,15 @@
             this.paymentDataGridViewTextBoxColumn.HeaderText = "Payment";
             this.paymentDataGridViewTextBoxColumn.Name = "paymentDataGridViewTextBoxColumn";
             // 
+            // newVendorInfoBindingSource8
+            // 
+            this.newVendorInfoBindingSource8.DataMember = "NewVendorInfo";
+            this.newVendorInfoBindingSource8.DataSource = this.azureVendorLogin;
+            // 
+            // newVendorInfoTableAdapter2
+            // 
+            this.newVendorInfoTableAdapter2.ClearBeforeFill = true;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,28 +529,33 @@
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gdUserData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorLoginDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgVendorDelivery)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgNewVendor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoDBpic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorLoginDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorDBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoDBpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoDBpicBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.azureVendorLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorCredentialsBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.newVendorInfoBindingSource8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -549,6 +604,14 @@
         private DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn1;
         private DataGridViewImageColumn photoDataGridViewImageColumn;
         private BindingSource vendorCredentialsBindingSource1;
+        private BindingSource vendorInfoBindingSource2;
+        private BindingSource vendorInfoBindingSource1;
+        private AzureVendorLogin azureVendorLogin;
+        private BindingSource vendorCredentialsBindingSource2;
+        private AzureVendorLoginTableAdapters.VendorCredentialsTableAdapter vendorCredentialsTableAdapter1;
+        private BindingSource vendorCredentialsBindingSource3;
+        private BindingSource vendorInfoBindingSource3;
+        private AzureVendorLoginTableAdapters.VendorInfoTableAdapter vendorInfoTableAdapter1;
         private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn companyDataGridViewTextBoxColumn;
@@ -558,7 +621,7 @@
         private DataGridViewTextBoxColumn diaryProductsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn deliveryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn paymentDataGridViewTextBoxColumn;
-        private BindingSource vendorInfoBindingSource2;
-        private BindingSource vendorInfoBindingSource1;
+        private BindingSource newVendorInfoBindingSource8;
+        private AzureVendorLoginTableAdapters.NewVendorInfoTableAdapter newVendorInfoTableAdapter2;
     }
 }

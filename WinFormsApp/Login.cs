@@ -7,7 +7,7 @@ namespace WinFormsApp
     {
         // Create Access Application
         private SqlConnection sqlConnection;
-        private string connectionString = @"Data Source=DESKTOP-3RCAUPI\SQLEXPRESS02;Initial Catalog=VendorLogin;Integrated Security=True;TrustServerCertificate=True"; // Access File Path
+        private string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=Bustillos1005!;TrustServerCertificate=True"; // Access File Path
 
         public Login()
         {
@@ -160,5 +160,10 @@ namespace WinFormsApp
         }
 
         private void label6_Click(object sender, EventArgs e) { }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

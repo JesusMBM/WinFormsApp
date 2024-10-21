@@ -53,6 +53,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AzureVendorLogin.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AzureVendorLogin.xsd</DependentUpon>
+    </Compile>
     <Compile Update="NewVendorDB.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -103,6 +108,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="AzureVendorLogin.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AzureVendorLogin.Designer.cs</LastGenOutput>
+    </None>
     <None Update="NewVendorDB.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>NewVendorDB.Designer.cs</LastGenOutput>
