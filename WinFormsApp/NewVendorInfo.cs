@@ -60,47 +60,36 @@ namespace WinFormsApp
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                try
+
+                // Get the next ID (assuming you have a method for generating the next available ID)
+                long nextID = GetNextId(sqlConnection);
+
+                using (SqlCommand sqlCommand = new SqlCommand(sqlCommandText, sqlConnection))
                 {
-                    // Open SQL connection
-                    sqlConnection.Open();
+                    // Add parameters to the SQL command
+                    sqlCommand.Parameters.AddWithValue("@New_VID", nextID);
+                    sqlCommand.Parameters.AddWithValue("@POC_Name", txtPOCName.Text);
+                    sqlCommand.Parameters.AddWithValue("@POC_JobTitle", txtPOCJobTitle.Text);
+                    sqlCommand.Parameters.AddWithValue("@POC_Email", txtPOCEmail.Text);
+                    sqlCommand.Parameters.AddWithValue("@POC_Phone", txtPOCPhone.Text);
+                    sqlCommand.Parameters.AddWithValue("@POC_Company", txtPOCCompany.Text);
+                    sqlCommand.Parameters.AddWithValue("@POC_CompAddress", txtComapanyAddress.Text);
+                    sqlCommand.Parameters.AddWithValue("@City", listBox2.GetItemText(listBox2.SelectedItem));
 
-                    // Get the next ID (assuming you have a method for generating the next available ID)
-                    long nextID = GetNextId(sqlConnection);
+                    // If the picture is present in the PictureBox, add the logic for photo later (as per screenshot)
+                    sqlCommand.Parameters.AddWithValue("@Photo", GetPhoto());
 
-                    using (SqlCommand sqlCommand = new SqlCommand(sqlCommandText, sqlConnection))
-                    {
-                        // Add parameters to the SQL command
-                        sqlCommand.Parameters.AddWithValue("@New_VID", nextID);
-                        sqlCommand.Parameters.AddWithValue("@POC_Name", txtPOCName.Text);
-                        sqlCommand.Parameters.AddWithValue("@POC_JobTitle", txtPOCJobTitle.Text);
-                        sqlCommand.Parameters.AddWithValue("@POC_Email", txtPOCEmail.Text);
-                        sqlCommand.Parameters.AddWithValue("@POC_Phone", txtPOCPhone.Text);
-                        sqlCommand.Parameters.AddWithValue("@POC_Company", txtPOCCompany.Text);
-                        sqlCommand.Parameters.AddWithValue("@POC_CompAddress", txtComapanyAddress.Text);
-                        sqlCommand.Parameters.AddWithValue("@City", listBox2.GetItemText(listBox2.SelectedItem));
-
-                        // If the picture is present in the PictureBox, add the logic for photo later (as per screenshot)
-                        sqlCommand.Parameters.AddWithValue("@Photo", GetPhoto());
-
-                        // Execute the SQL command
-                        sqlCommand.ExecuteNonQuery();
-                    }
-
-                    MessageBox.Show("New vendor information saved successfully!");
+                    // Execute the SQL command
+                    sqlCommand.ExecuteNonQuery();
                 }
-                catch (Exception ex)
-                {
-                    // Display any errors
-                    MessageBox.Show("Failed to save vendor information: " + ex.Message);
-                }
-                finally
-                {
-                    // Close the SQL connection
-                    sqlConnection.Close();
-                }
+
+                MessageBox.Show("New vendor information saved successfully!");
             }
+            sqlConnection.Close();
         }
+            
+
+          
 
 
         private void btnUploadPhoto_Click_1(object sender, EventArgs e)
