@@ -22,9 +22,9 @@ namespace WinFormsApp
         {
             sqlConnection.Open();
 
-            string query = "SELECT ISNULL (MAX(NEW_VID), 0) + 1 FROM NewVendorInfo";
+            string query = "SELECT ISNULL (MAX(ID), 0) + 1 FROM NewVendorInfo";
             SqlCommand cmd = new SqlCommand(query, sqlConnection);
-            return (int)cmd.ExecuteScalar();
+            return(int)cmd.ExecuteScalar();
         }
 
 
@@ -55,8 +55,8 @@ namespace WinFormsApp
         private void button2_Click(object sender, EventArgs e)
         {
             // Initialize SQL command and set the command text for insertion
-            string sqlCommandText = "INSERT INTO NewVendorDB (New_VID, POC_Name, POC_JobTitle, POC_Email, POC_Phone, POC_Company, POC_CompAddress, City, Photo) " +
-                                    "VALUES (@New_VID, @POC_Name, @POC_JobTitle, @POC_Email, @POC_Phone, @POC_Company, @POC_CompAddress, @City, @Photo)";
+            string sqlCommandText = @"INSERT INTO NewVendorInfo (ID, POC_Name, POC_JobTitle, POC_Email, POC_Phone, POC_Company, POC_CompanyAddress, City, Photo)
+                                    VALUES (@ID, @POC_Name, @POC_JobTitle, @POC_Email, @POC_Phone, @POC_Company, @POC_CompanyAddress, @City, @Photo)";
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
@@ -67,13 +67,13 @@ namespace WinFormsApp
                 using (SqlCommand sqlCommand = new SqlCommand(sqlCommandText, sqlConnection))
                 {
                     // Add parameters to the SQL command
-                    sqlCommand.Parameters.AddWithValue("@New_VID", nextID);
+                    sqlCommand.Parameters.AddWithValue("@ID", nextID);
                     sqlCommand.Parameters.AddWithValue("@POC_Name", txtPOCName.Text);
                     sqlCommand.Parameters.AddWithValue("@POC_JobTitle", txtPOCJobTitle.Text);
                     sqlCommand.Parameters.AddWithValue("@POC_Email", txtPOCEmail.Text);
                     sqlCommand.Parameters.AddWithValue("@POC_Phone", txtPOCPhone.Text);
                     sqlCommand.Parameters.AddWithValue("@POC_Company", txtPOCCompany.Text);
-                    sqlCommand.Parameters.AddWithValue("@POC_CompAddress", txtComapanyAddress.Text);
+                    sqlCommand.Parameters.AddWithValue("@POC_CompanyAddress", txtComapanyAddress.Text);
                     sqlCommand.Parameters.AddWithValue("@City", listBox2.GetItemText(listBox2.SelectedItem));
 
                     // If the picture is present in the PictureBox, add the logic for photo later (as per screenshot)
