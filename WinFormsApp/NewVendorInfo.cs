@@ -8,7 +8,7 @@ namespace WinFormsApp
     {
 
         private SqlConnection sqlConnection;
-        private string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=Bustillos1005!;TrustServerCertificate=True"; // Access File Path
+        private string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=BUstillos1!;TrustServerCertificate=True"; // Access File Path
 
         public NewVendorInfo()
         {

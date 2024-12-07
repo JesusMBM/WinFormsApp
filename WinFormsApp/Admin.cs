@@ -51,7 +51,6 @@ namespace WinFormsApp
         private void btnViewUserData_Click(object sender, EventArgs e)
         {
             this.vendorCredentialsTableAdapter1.Fill(this.azureVendorLogin.VendorCredentials);
-
             gdUserData.DataSource = this.azureVendorLogin.VendorCredentials;
 
             gdUserData.Visible = true;

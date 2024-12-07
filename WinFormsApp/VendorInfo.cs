@@ -15,7 +15,7 @@ namespace WinFormsApp
     {
 
         private SqlConnection sqlConnection;
-        private string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=Bustillos1005!;TrustServerCertificate=True"; // Access File Path
+        private string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=BUstillos1!;TrustServerCertificate=True"; // Access File Path
 
 
         public VendorInfo()
@@ -52,7 +52,7 @@ namespace WinFormsApp
         private void btnSave_Click_2(object sender, EventArgs e)
         {
             // Define the connection string (replace with your actual connection string)
-           string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=Bustillos1005!;TrustServerCertificate=True"; // Access File Path
+           string connectionString = @"Data Source=vendor-mgmtform.database.windows.net;Initial Catalog=VendorLogin;Persist Security Info=True;User ID=Jesus;Password=BUstillos1!;TrustServerCertificate=True"; // Access File Path
 ;
 
             // Construct the SQL insert query
